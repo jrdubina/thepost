@@ -18,7 +18,6 @@ function IndexPage() {
     <>
       {
         articles?.map(item => {
-          console.log(item)
           switch(item?.type) {
             case 'header': 
               return <Header key={item._id} content={item.content} level={item.level} />;
