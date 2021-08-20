@@ -18,13 +18,19 @@ function IndexPage() {
     <>
       {
         articles?.map(item => {
-          switch(item?.type) {
-            case 'header': 
-              return <Header key={item._id} content={item.content} level={item.level} />;
-            case 'text':
-              return  <Copy key={item._id} content={item.content} />;
-            default: break;
-          }
+          return (
+            <>
+              {
+                item?.type === 'header' &&
+                  <Header key={item._id} content={item.content} level={item.level} />
+              }
+              {
+                item?.type === 'text' &&
+                  <Copy key={item._id} content={item.content} />
+              }
+            </>
+
+          )
         })
       }
     </>
